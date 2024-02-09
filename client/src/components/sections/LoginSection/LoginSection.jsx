@@ -1,4 +1,5 @@
 import { INPUT_TYPES } from "../../../utils/constants";
+import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
 
 const LoginSection = () => {
@@ -8,6 +9,7 @@ const LoginSection = () => {
       <div className="flex flex-col gap-1">
         <Input type={INPUT_TYPES.EMAIL} label="Username" />
         <Input type={INPUT_TYPES.PASSWORD} label="Password" />
+        <Button className="ml-auto mr-auto">Login</Button>
       </div>
     </div>
   );

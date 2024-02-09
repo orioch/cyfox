@@ -1,4 +1,6 @@
-const Logo = ({ color = "white", ...props }) => {
+import { COLORS } from "../../utils/constants";
+
+const Logo = ({ color = COLORS.WHITE, ...props }) => {
   return (
     <svg
       {...props}
