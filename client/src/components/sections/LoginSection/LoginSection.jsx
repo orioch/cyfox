@@ -3,7 +3,7 @@ import Input from "../../atoms/Input/Input";
 
 const LoginSection = () => {
   return (
-    <div className="flex flex-col shadow-lg rounded-xl bg-gray-100 p-10 gap-10">
+    <div className="flex flex-col shadow-gray-600 shadow-l rounded-xl bg-gray-300 p-10 gap-10">
       <h1 className="font-semibold mr-auto ml-auto">Login</h1>
       <div className="flex flex-col gap-3">
         <Input type={INPUT_TYPES.EMAIL} label="Username" />
