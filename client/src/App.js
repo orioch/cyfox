@@ -7,7 +7,7 @@ import ChangePasswordPage from "./components/pages/ChangePasswordPage/ChangePass
 
 function App() {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen font-mono">
       <BrowserRouter>
         <Routes>
           <Route exact path="/" Component={LoginPage} />
