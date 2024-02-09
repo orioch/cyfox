@@ -63,7 +63,7 @@ const Input = ({
           {label}
         </label>
       </div>
-      <span className="whitespace-nowrap my-1 max-w-full max-h-4 ml-4 text-xs text-red-500 min-h-4  min-w-14 overflow-hidden">
+      <span className="whitespace-nowrap my-1 max-w-full max-h-4 ml-4 text-[10px] text-red-500 min-h-4  min-w-14 overflow-hidden">
         {error?.label}
       </span>
     </div>
