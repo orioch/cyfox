@@ -15,3 +15,10 @@ export const COLORS = {
   WHITE: "white",
   BLACK: "black",
 };
+export const ROUTES = {
+  MAIN_AUTH: "/main-auth",
+  LOGIN: "/login",
+  HOME: "/home",
+  SIGNUP: "/signup",
+  CHANGE_PASSWORD: "/change-password",
+};
