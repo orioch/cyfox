@@ -1,6 +1,6 @@
 import LoginSection from "../../sections/LoginSection/LoginSection";
-
 import Logo from "../../Icons/Logo";
+
 const LoginPage = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">

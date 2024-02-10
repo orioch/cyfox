@@ -1,8 +1,9 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { INPUT_TYPES, ROUTES } from "../../../utils/constants";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
-import { useNavigate } from "react-router-dom";
 import Card from "../../atoms/Card/Card";
 
 const LoginSection = () => {

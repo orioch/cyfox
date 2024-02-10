@@ -1,8 +1,9 @@
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Logo from "../../Icons/Logo";
 import Button from "../../atoms/Button/Button";
 import { ROUTES } from "../../../utils/constants";
-import { useCallback } from "react";
 
 const MainAuthPage = () => {
   const navigate = useNavigate();
