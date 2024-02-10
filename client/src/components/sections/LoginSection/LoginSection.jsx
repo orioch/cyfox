@@ -3,6 +3,7 @@ import { INPUT_TYPES, ROUTES } from "../../../utils/constants";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
 import { useNavigate } from "react-router-dom";
+import Card from "../../atoms/Card/Card";
 
 const LoginSection = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const LoginSection = () => {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col shadow-gray-600 shadow-l animate-in slide-in-from-bottom-12 fade-in duration-500 rounded-xl bg-gray-300 p-16 gap-10">
+    <Card className="flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
       <h1 className="font-semibold mr-auto ml-auto">Login</h1>
       <div className="flex flex-col gap-1">
         <Input type={INPUT_TYPES.EMAIL} label="Email" />
@@ -29,7 +30,7 @@ const LoginSection = () => {
         </button>{" "}
         here!
       </span>
-    </div>
+    </Card>
   );
 };
 
