@@ -44,7 +44,7 @@ const Input = ({
 
   return (
     <div className="flex flex-col">
-      <div class="relative w-full min-w-[200px] h-10">
+      <div className="relative w-full min-w-[200px] h-10">
         <input
           {...inputProps}
           className={`peer w-full h-full bg-transparent font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border ${
