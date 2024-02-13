@@ -5,8 +5,8 @@ import { uid } from "uid";
 
 const initialState = { users: [] };
 
-const counterSlice = createSlice({
-  name: "counter",
+const mockServerSlice = createSlice({
+  name: "mockServer",
   initialState,
   reducers: {
     signup(state, action) {
@@ -42,5 +42,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { signup, login } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { signup, login } = mockServerSlice.actions;
+export default mockServerSlice.reducer;
