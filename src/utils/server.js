@@ -18,7 +18,7 @@ export const createNewUser = async (userData) => {
       }
 
       resolve();
-    }, Math.random() * (2 - 1) + 1);
+    }, Math.random() * (2000 - 500) + 500);
   });
 };
 

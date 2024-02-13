@@ -1,36 +1,40 @@
-import { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 import { INPUT_TYPES } from "../../../utils/constants";
+import { createNewUser } from "../../../utils/server";
 import Button from "../../atoms/Button/Button";
 import Card from "../../atoms/Card/Card";
 import Input from "../../atoms/Input/Input";
-import { createNewUser } from "../../../utils/api";
+import Spinner from "../../atoms/Spinner/Spinner";
 
 const SingUpSection = () => {
-  const dispatch = useDispatch();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState();
   const [passwordError, setPasswordError] = useState();
   const [bottomError, setBottomError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUpClick = async () => {
     if (!emailError && !passwordError) {
+      setIsLoading(true);
+
       try {
         await createNewUser({ email, password });
+
         setBottomError();
       } catch (err) {
         setBottomError(err.message);
       }
+
+      setIsLoading(false);
     }
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-  console.log(bottomError);
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -54,8 +58,11 @@ const SingUpSection = () => {
           onChange={handlePasswordChange}
         />
         {bottomError}
-        <Button onClick={handleSignUpClick} className="ml-auto mr-auto">
-          Sign Up
+        <Button
+          onClick={handleSignUpClick}
+          className="ml-auto mr-auto w-28 flex items-center justify-center"
+        >
+          {isLoading ? <Spinner /> : "Sign Up"}
         </Button>
       </div>
     </Card>
