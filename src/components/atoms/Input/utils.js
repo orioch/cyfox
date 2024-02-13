@@ -7,7 +7,6 @@ export const validateText = ({ value, type, required, setError, isBlur }) => {
   }
 
   if (type === INPUT_TYPES.EMAIL) {
-    console.log(value, EMAIL_REGEX.test(value));
     if (EMAIL_REGEX.test(value)) {
       return setError();
     } else if (isBlur) {

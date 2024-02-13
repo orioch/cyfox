@@ -14,17 +14,23 @@ const SingUpSection = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState();
   const [passwordError, setPasswordError] = useState();
+  const [bottomError, setBottomError] = useState();
 
-  const handleSignUpClick = () => {
+  const handleSignUpClick = async () => {
     if (!emailError && !passwordError) {
-      createNewUser({ dispatch, userData: { email, password } });
+      try {
+        await createNewUser({ email, password });
+        setBottomError();
+      } catch (err) {
+        setBottomError(err.message);
+      }
     }
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
+  console.log(bottomError);
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -47,6 +53,7 @@ const SingUpSection = () => {
           setError={setPasswordError}
           onChange={handlePasswordChange}
         />
+        {bottomError}
         <Button onClick={handleSignUpClick} className="ml-auto mr-auto">
           Sign Up
         </Button>

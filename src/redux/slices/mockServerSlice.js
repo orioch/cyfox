@@ -10,15 +10,7 @@ const mockServerSlice = createSlice({
   initialState,
   reducers: {
     signup(state, action) {
-      if (state.users.find((user) => user.email === action.payload.email)) {
-        const error = new Error("Account already exist");
-
-        error.code = ERROR_CODES.ACCOUNT_ALREADY_EXIST;
-
-        throw error;
-      } else {
-        state.users.push({ ...action.payload, token: uid() });
-      }
+      state.users.push({ ...action.payload, token: uid() });
     },
     login(state, action) {
       const user = state.users.find(
