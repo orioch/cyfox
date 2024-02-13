@@ -21,3 +21,27 @@ export const createNewUser = async (userData) => {
     }, Math.random() * (2 - 1) + 1);
   });
 };
+
+export const login = async (userData) => {
+  const { users } = store.getState().mockServerSlice;
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const user = users.find((user) => user.email === userData.email);
+
+      if (user) {
+        if (user.password === userData.password) {
+          resolve(user.token);
+        } else {
+          const error = new Error("Password is incorrect");
+          error.code = 401;
+          reject(error);
+        }
+      } else {
+        const error = new Error("Email not exist");
+        error.code = 404;
+        reject(error);
+      }
+    }, Math.random() * (2 - 1) + 1);
+  });
+};
