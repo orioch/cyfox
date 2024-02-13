@@ -7,8 +7,11 @@ import Input from "../../atoms/Input/Input";
 import Card from "../../atoms/Card/Card";
 import Spinner from "../../atoms/Spinner/Spinner";
 import { login } from "../../../utils/server";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../../redux/slices/tokenSlice";
 
 const LoginSection = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -22,6 +25,8 @@ const LoginSection = () => {
       setIsLoading(true);
       try {
         const token = await login({ email, password });
+        dispatch(setToken(token));
+        navigate(ROUTES.DEFAULT);
 
         setEmailError();
         setPasswordError();
