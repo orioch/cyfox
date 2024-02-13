@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { INPUT_TYPES, ROUTES } from "../../../utils/constants";
+import { ERROR_CODES, INPUT_TYPES, ROUTES } from "../../../utils/constants";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
 import Card from "../../atoms/Card/Card";
@@ -15,7 +15,6 @@ const LoginSection = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState();
   const [passwordError, setPasswordError] = useState();
-  const [serverError, setServerError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoginClick = async () => {
@@ -24,9 +23,14 @@ const LoginSection = () => {
       try {
         const token = await login({ email, password });
 
-        setServerError();
+        setEmailError();
+        setPasswordError();
       } catch (err) {
-        setServerError({ label: err.message, key: err.code });
+        if (err.code === ERROR_CODES.PASSWORD_IS_INCORRECT) {
+          setPasswordError({ label: err.message, key: err.code });
+        } else {
+          setEmailError({ label: err.message, key: err.code });
+        }
       }
 
       setIsLoading(false);
@@ -53,13 +57,14 @@ const LoginSection = () => {
           value={email}
           label="Email"
           type={INPUT_TYPES.EMAIL}
-          error={serverError}
+          error={emailError}
           setError={setEmailError}
           onChange={handleEmailChange}
         />
         <Input
           value={password}
           label="Password"
+          error={passwordError}
           type={INPUT_TYPES.PASSWORD}
           setError={setPasswordError}
           onChange={handlePasswordChange}

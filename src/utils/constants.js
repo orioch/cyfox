@@ -25,4 +25,6 @@ export const ROUTES = {
 
 export const ERROR_CODES = {
   ACCOUNT_ALREADY_EXIST: 409,
+  PASSWORD_IS_INCORRECT: 401,
+  EMAIL_NOT_EXIST: 404,
 };

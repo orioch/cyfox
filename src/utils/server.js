@@ -34,12 +34,12 @@ export const login = async (userData) => {
           resolve(user.token);
         } else {
           const error = new Error("Password is incorrect");
-          error.code = 401;
+          error.code = ERROR_CODES.PASSWORD_IS_INCORRECT;
           reject(error);
         }
       } else {
         const error = new Error("Email not exist");
-        error.code = 404;
+        error.code = ERROR_CODES.EMAIL_NOT_EXIST;
         reject(error);
       }
     }, Math.random() * (2 - 1) + 1);
