@@ -49,9 +49,20 @@ const SingUpSection = () => {
   };
 
   return (
-    <Card className="flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
+    <Card className="flex w-[500px] h-[420px] flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
       {isSuccess ? (
-        <div>isSuccess</div>
+        <div className="h-full w-full flex justify-center  items-center flex-col gap-5">
+          <h3 className="animate-in slide-in-from-bottom-12 fade-in duration-500">
+            Thanks for signing up!
+          </h3>
+          <Button
+            onClick={handleLogInClick}
+            shouldHaveHoverTransition
+            className="ml-auto mr-auto w-28 flex items-center justify-center animate-in slide-in-from-bottom-12 fade-in duration-500"
+          >
+            Login
+          </Button>
+        </div>
       ) : (
         <>
           <h1 className="font-semibold mr-auto ml-auto">Sign Up</h1>
