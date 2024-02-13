@@ -4,7 +4,7 @@ import { validateText } from "./utils";
 const Input = ({
   label,
   error: parentError,
-  setError: parentSetError,
+  setError: parentSetError = () => {},
   onBlur: parentOnBlur = () => {},
   onChange: parentOnChange = () => {},
   value: parentValue,

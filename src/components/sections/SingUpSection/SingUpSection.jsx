@@ -1,13 +1,16 @@
 import { useState } from "react";
 
-import { INPUT_TYPES } from "../../../utils/constants";
+import { INPUT_TYPES, ROUTES } from "../../../utils/constants";
 import { createNewUser } from "../../../utils/server";
 import Button from "../../atoms/Button/Button";
 import Card from "../../atoms/Card/Card";
 import Input from "../../atoms/Input/Input";
 import Spinner from "../../atoms/Spinner/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const SingUpSection = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState();
@@ -39,6 +42,10 @@ const SingUpSection = () => {
     setPassword(e.target.value);
   };
 
+  const handleLogInClick = () => {
+    navigate(ROUTES.LOGIN);
+  };
+
   return (
     <Card className="flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
       <h1 className="font-semibold mr-auto ml-auto">Sign Up</h1>
@@ -65,6 +72,16 @@ const SingUpSection = () => {
           {isLoading ? <Spinner /> : "Sign Up"}
         </Button>
       </div>
+      <span>
+        Already have an account?{" "}
+        <button
+          onClick={handleLogInClick}
+          className="text-prim-default font-semibold hover:-translate-y-1 hover:scale-110 transition"
+        >
+          Login
+        </button>{" "}
+        here!
+      </span>
     </Card>
   );
 };
