@@ -22,3 +22,7 @@ export const ROUTES = {
   SIGNUP: "/signup",
   CHANGE_PASSWORD: "/change-password",
 };
+
+export const ERROR_CODES = {
+  ACCOUNT_ALREADY_EXIST: 409,
+};
