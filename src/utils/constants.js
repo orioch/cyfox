@@ -16,7 +16,6 @@ export const COLORS = {
   BLACK: "black",
 };
 export const ROUTES = {
-  DEFAULT: "/",
   MAIN_AUTH: "/main-auth",
   LOGIN: "/login",
   HOME: "/home",
