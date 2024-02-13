@@ -18,12 +18,14 @@ const MainAuthPage = () => {
 
   return (
     <div className="w-screen h-screen flex text-white">
-      <div className="w-[60%] h-full flex justify-center items-center">
+      <div className="w-[60%] h-full flex justify-center items-center animate-in slide-in-from-bottom-12 fade-in duration-500">
         <Logo className="w-72" />
       </div>
       <div className="bg-blue-950 w-[40%] flex justify-center flex-col items-center gap-10 p-10">
-        <h1 className="font-bold text-xl">Welcome</h1>
-        <div className="flex gap-5">
+        <h1 className="font-bold text-xl animate-in slide-in-from-bottom-12 fade-in duration-500">
+          Welcome
+        </h1>
+        <div className="flex gap-5 animate-in slide-in-from-bottom-12 fade-in duration-500">
           <Button onClick={handleSignUpClick} shouldHaveHoverTransition>
             Sing Up
           </Button>
