@@ -18,7 +18,7 @@ export const createNewUser = async (userData) => {
       }
 
       resolve();
-    }, Math.random() * (2000 - 500) + 500);
+    }, Math.random() * (1500 - 500) + 500);
   });
 };
 
@@ -42,6 +42,6 @@ export const login = async (userData) => {
         error.code = ERROR_CODES.EMAIL_NOT_EXIST;
         reject(error);
       }
-    }, Math.random() * (2 - 1) + 1);
+    }, Math.random() * (1500 - 500) + 500);
   });
 };
