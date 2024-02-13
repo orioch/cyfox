@@ -17,6 +17,7 @@ const SingUpSection = () => {
   const [passwordError, setPasswordError] = useState();
   const [serverError, setServerError] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSignUpClick = async () => {
     if (!emailError && !passwordError) {
@@ -26,6 +27,7 @@ const SingUpSection = () => {
         await createNewUser({ email, password });
 
         setServerError();
+        setIsSuccess(true);
       } catch (err) {
         setServerError({ label: err.message, key: err.code });
       }
@@ -48,40 +50,46 @@ const SingUpSection = () => {
 
   return (
     <Card className="flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
-      <h1 className="font-semibold mr-auto ml-auto">Sign Up</h1>
-      <div className="flex flex-col gap-1">
-        <Input
-          value={email}
-          label="Email"
-          type={INPUT_TYPES.EMAIL}
-          error={serverError}
-          setError={setEmailError}
-          onChange={handleEmailChange}
-        />
-        <Input
-          value={password}
-          label="Password"
-          type={INPUT_TYPES.PASSWORD}
-          setError={setPasswordError}
-          onChange={handlePasswordChange}
-        />
-        <Button
-          onClick={handleSignUpClick}
-          className="ml-auto mr-auto w-28 flex items-center justify-center"
-        >
-          {isLoading ? <Spinner /> : "Sign Up"}
-        </Button>
-      </div>
-      <span>
-        Already have an account?{" "}
-        <button
-          onClick={handleLogInClick}
-          className="text-prim-default font-semibold hover:-translate-y-1 hover:scale-110 transition"
-        >
-          Login
-        </button>{" "}
-        here!
-      </span>
+      {isSuccess ? (
+        <div>isSuccess</div>
+      ) : (
+        <>
+          <h1 className="font-semibold mr-auto ml-auto">Sign Up</h1>
+          <div className="flex flex-col gap-1">
+            <Input
+              value={email}
+              label="Email"
+              type={INPUT_TYPES.EMAIL}
+              error={serverError}
+              setError={setEmailError}
+              onChange={handleEmailChange}
+            />
+            <Input
+              value={password}
+              label="Password"
+              type={INPUT_TYPES.PASSWORD}
+              setError={setPasswordError}
+              onChange={handlePasswordChange}
+            />
+            <Button
+              onClick={handleSignUpClick}
+              className="ml-auto mr-auto w-28 flex items-center justify-center"
+            >
+              {isLoading ? <Spinner /> : "Sign Up"}
+            </Button>
+          </div>
+          <span>
+            Already have an account?{" "}
+            <button
+              onClick={handleLogInClick}
+              className="text-prim-default font-semibold hover:-translate-y-1 hover:scale-110 transition"
+            >
+              Login
+            </button>{" "}
+            here!
+          </span>
+        </>
+      )}
     </Card>
   );
 };
