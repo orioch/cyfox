@@ -3,6 +3,7 @@ import { validateText } from "./utils";
 
 const Input = ({
   label,
+  error: parentError,
   setError: parentSetError,
   onBlur: parentOnBlur = () => {},
   onChange: parentOnChange = () => {},
@@ -37,6 +38,10 @@ const Input = ({
   useEffect(() => {
     parentSetError(error);
   }, [parentSetError, error]);
+
+  useEffect(() => {
+    setError(parentError);
+  }, [setError, parentError]);
 
   const inputProps = {
     type,

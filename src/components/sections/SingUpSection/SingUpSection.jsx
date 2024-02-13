@@ -12,7 +12,7 @@ const SingUpSection = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState();
   const [passwordError, setPasswordError] = useState();
-  const [bottomError, setBottomError] = useState();
+  const [serverError, setServerError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUpClick = async () => {
@@ -22,9 +22,9 @@ const SingUpSection = () => {
       try {
         await createNewUser({ email, password });
 
-        setBottomError();
+        setServerError();
       } catch (err) {
-        setBottomError(err.message);
+        setServerError({ label: err.message, key: err.code });
       }
 
       setIsLoading(false);
@@ -47,6 +47,7 @@ const SingUpSection = () => {
           value={email}
           label="Email"
           type={INPUT_TYPES.EMAIL}
+          error={serverError}
           setError={setEmailError}
           onChange={handleEmailChange}
         />
@@ -57,7 +58,6 @@ const SingUpSection = () => {
           setError={setPasswordError}
           onChange={handlePasswordChange}
         />
-        {bottomError}
         <Button
           onClick={handleSignUpClick}
           className="ml-auto mr-auto w-28 flex items-center justify-center"
