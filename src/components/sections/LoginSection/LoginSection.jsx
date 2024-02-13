@@ -23,11 +23,13 @@ const LoginSection = () => {
       setIsLoading(true);
       try {
         const token = await login({ email, password });
-        console.log(token);
+
         setServerError();
       } catch (err) {
         setServerError({ label: err.message, key: err.code });
       }
+
+      setIsLoading(false);
     }
   };
 
