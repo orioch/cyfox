@@ -11,7 +11,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex w-full h-full flex-col gap-7 justify-center items-center text-white text-5xl">
+    <div className="flex w-full h-full flex-col gap-7 justify-center text-center items-center text-white text-3xl md:text-5xl">
       <h1 className="animate-in slide-in-from-bottom-12 fade-in duration-500">
         Welcome to the home page!
       </h1>

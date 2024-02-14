@@ -55,7 +55,7 @@ const LoginSection = () => {
   }, [navigate]);
 
   return (
-    <Card className="flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
+    <Card className="flex flex-col w-screen h-screen md:w-fit md:h-fit animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
       <h1 className="font-semibold mr-auto ml-auto">Login</h1>
       <div className="flex flex-col gap-1">
         <Input

@@ -49,7 +49,7 @@ const SingUpSection = () => {
   };
 
   return (
-    <Card className="flex w-[500px] h-[420px] flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
+    <Card className="flex md:w-[500px] md:h-[420px] w-screen h-screen flex-col animate-in slide-in-from-bottom-12 fade-in duration-500 gap-10">
       {isSuccess ? (
         <div className="h-full w-full flex justify-center  items-center flex-col gap-5">
           <h3 className="animate-in slide-in-from-bottom-12 fade-in duration-500">
